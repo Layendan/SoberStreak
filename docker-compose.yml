@@ -1,0 +1,14 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: valentina
+      POSTGRES_DB: sobriety_counter
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
