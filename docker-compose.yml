@@ -1,14 +1,41 @@
 services:
   db:
-    image: postgres
-    restart: always
-    ports:
-      - 5432:5432
-    environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: valentina
-      POSTGRES_DB: sobriety_counter
+    container_name: soberstreak-db
+    image: postgres:latest
+    env_file:
+      - ./.env.db
     volumes:
-      - pgdata:/var/lib/postgresql/data
-volumes:
-  pgdata:
+      - /mnt/external-drive/db-data/soberstreak:/var/lib/postgresql/data
+    expose:
+      - '5432'
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '5'
+    restart: always
+
+  soberstreak-app:
+    container_name: soberstreak-app
+    depends_on:
+      - db
+    working_dir: /app
+    env_file:
+      - ./.env
+    build:
+      context: ./
+    expose:
+      - '3000'
+    networks:
+      - shared-proxy
+      - default
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '5'
+    restart: always
+
+networks:
+  shared-proxy:
+    external: true

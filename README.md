@@ -1,4 +1,4 @@
-# Sobriety Counter
+# SoberStreak
 
 A web application to help track sobriety milestones and celebrate progress in recovery. Built with SvelteKit, this app allows users to create and manage multiple sobriety counters, providing real-time tracking of days, hours, minutes, and seconds since their last drink.
 
