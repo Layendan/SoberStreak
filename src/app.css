@@ -73,6 +73,6 @@
 
 html,
 body {
-	@apply h-screen max-h-screen overflow-hidden;
+	@apply h-dvh max-h-dvh overflow-hidden;
 	font-family: 'Chewy', system-ui;
 }
