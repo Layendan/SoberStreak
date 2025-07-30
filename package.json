@@ -16,6 +16,8 @@
 		"db:push": "drizzle-kit push",
 		"db:generate": "drizzle-kit generate",
 		"db:migrate": "drizzle-kit migrate",
+		"db:migrate:docker": "docker compose -f docker-compose.db.yml --profile migration up migrate --build",
+		"db:migrate:prod": "docker compose --profile migration up migrate --build",
 		"db:studio": "drizzle-kit studio"
 	},
 	"devDependencies": {

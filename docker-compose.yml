@@ -17,6 +17,21 @@ services:
         max-file: '5'
     restart: always
 
+  migrate:
+    container_name: soberstreak-migrate
+    depends_on:
+      - db
+    build:
+      context: ./
+      dockerfile: Dockerfile.migration
+    env_file:
+      - ./.env
+    networks:
+      - default
+    profiles:
+      - migration
+    restart: 'no'
+
   soberstreak-app:
     container_name: soberstreak-app
     depends_on:
