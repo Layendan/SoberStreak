@@ -18,7 +18,8 @@
 
 <header class="navbar bg-base-200 mb-2 rounded-b-lg px-2 shadow-sm">
 	<a class="navbar-start mr-auto gap-2" href="/">
-		<img src="/soberstreak.png" alt="SoberStreak Logo" class="h-8 w-8" />
+		<enhanced:img src="/static/soberstreak.png" alt="SoberStreak Logo" class="h-8 w-8">
+		</enhanced:img>
 		<h1 class="text-2xl font-bold">SoberStreak</h1>
 	</a>
 	<details class="dropdown dropdown-end">
