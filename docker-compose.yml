@@ -8,6 +8,8 @@ services:
       - /mnt/external-drive/db-data/soberstreak:/var/lib/postgresql/data
     expose:
       - '5432'
+    networks:
+      - default
     logging:
       driver: 'json-file'
       options:
