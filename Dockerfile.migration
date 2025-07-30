@@ -13,4 +13,4 @@ COPY drizzle.config.ts ./
 COPY src/lib/server/db/schema.ts ./src/lib/server/db/
 
 # Set default command to run migrations
-CMD ["npx drizzle-kit push"]
+CMD ["pnpm", "db:push"]
