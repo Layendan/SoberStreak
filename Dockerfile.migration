@@ -11,11 +11,6 @@ RUN pnpm install --frozen-lockfile
 # Copy necessary files for migration
 COPY drizzle.config.ts ./
 COPY src/lib/server/db/schema.ts ./src/lib/server/db/
-COPY drizzle/ ./drizzle/
-COPY migrate_schema.sh ./
-
-# Make the migration script executable
-RUN chmod +x migrate_schema.sh
 
 # Set default command to run migrations
-CMD ["sh", "-c", "npx drizzle-kit migrate"]
+CMD ["npx drizzle-kit push"]
